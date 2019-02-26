@@ -5,8 +5,6 @@ const Todo = ({todo}) => <div className="todo">{todo.text}</div>
 
 function App () {
     const [todos, setTodos] = useState([
-        {text: "Learn React"},
-        {text: "Prepare Lunch"}
     ])
 
     const addTodo = text => {
