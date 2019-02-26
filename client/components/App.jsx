@@ -14,6 +14,7 @@ function App () {
 
     return (
         <div>
+            <h1>My Todo App</h1>
             <TodoForm addTodo={addTodo} />
             {todos.map((todo, index) => (
                 <Todo
