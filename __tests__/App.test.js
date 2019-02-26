@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import 'jest-dom/extend-expect';
 import App from '../client/components/App';
 
-test('todo form renders a form', () => {
+test('todo app has title', () => {
   const div = document.createElement('div')
   ReactDOM.render(<App />, div)
-  expect(div.querySelector('form')).toBeTruthy()
+  expect(div.querySelector('h1')).toHaveTextContent('My Todo App')
 });
