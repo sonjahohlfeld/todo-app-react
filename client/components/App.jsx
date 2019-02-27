@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 import TodoForm from './TodoForm.jsx'
 
-const Todo = ({todo, testid}) => <div className="todo" data-testid="bla">{todo.text}</div>
+const Todo = ({todo, testid}) => <div className="todo" data-testid={testid}>{todo.text}</div>
 
 function App () {
     const [todos, setTodos] = useState([
-        {text: "bla"}
     ])
 
     const addTodo = text => {
@@ -19,7 +18,7 @@ function App () {
             <TodoForm addTodo={addTodo} />
             {todos.map((todo, index) => (
                 <Todo
-                    testid={"todo-".index}
+                    testid={'todo-'+index}
                     key={index}
                     index={index}
                     todo = {todo}
