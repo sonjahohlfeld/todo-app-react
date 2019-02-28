@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import 'jest-dom/extend-expect';
 import App from '../client/components/App';
 import { render, fireEvent, cleanup } from 'react-testing-library';
