@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'jest-dom/extend-expect';
 import App from '../client/components/App';
-import { getByLabelText, getByTestId, getByText, queryAllByTestId } from 'react-testing-library';
+import { render, fireEvent } from 'react-testing-library';
 
 const $ = require('jquery')
 
@@ -12,13 +12,9 @@ test('todo app has title', () => {
   expect(div.querySelector('h1')).toHaveTextContent('My Todo App')
 });
 
-test('todo form renders a form', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<App />, div)
-  const input = getByTestId(div, 'enterTodo')
-  input.value = "Write React tests"
-  $("#enterTodoLabel").trigger("click")
-  //implement key press event
-  const todoItem = getByTestId(div, 'todo-0')
-  expect(getByTestId(div, 'bla')).toHaveTextContent('blub')
+test('add todo to todo list', () => {
+  const {getByTestId} = render(<App />)
+  fireEvent.change(getByTestId('enterTodo'), {target: {value: "Learn React"}})
+  fireEvent.submit(getByTestId('enterTodoForm')) 
+  expect(getByTestId('todo-0')).toHaveTextContent("Learn React")
 });
