@@ -18,9 +18,9 @@ test('todo app should add new todos to list', () => {
 });
 
 test('todo app should set todos to completed', () => {
-  const {getByTestId} = render(<App />)
+  const {getByTestId, debug} = render(<App />)
   fireEvent.change(getByTestId('enterTodo'), {target: {value: "Learn React"}})
   fireEvent.submit(getByTestId('enterTodoForm')) 
   fireEvent.click(getByTestId('completeTodo'))
-  expect(getByTestId('todo-0').hasAttribute('text-decoration')).toBeTruthy()
+  expect(getByTestId('todo-0')).toHaveStyle('text-decoration: line-through')
 })
