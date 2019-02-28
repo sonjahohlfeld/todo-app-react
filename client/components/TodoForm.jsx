@@ -11,7 +11,7 @@ function TodoForm({addTodo}) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form data-testid="enterTodoForm" onSubmit={handleSubmit}>
             <label htmlFor="enterTodoLabel">Enter Todo: </label>
             <input
                 data-testid="enterTodo"
